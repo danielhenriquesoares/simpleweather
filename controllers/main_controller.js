@@ -7,7 +7,4 @@
   function MainController($scope) {
     $scope.title = "Weather";
   }
-  // test de commit
-  //
-  // 
 }).call();
