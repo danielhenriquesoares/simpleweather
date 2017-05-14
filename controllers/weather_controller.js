@@ -16,7 +16,7 @@
     .catch(function(errorObj) {
       console.error("error", errorObj.error.message);
     }).finally(function() {
-      console.log(resp);
+      //console.log(resp);
       if (typeof(resp) !== "undefined" && !resp.error.hasError) {
         var viewData;
         weatherService.getCurrentLocationWeatherByCoords(resp.data.coords)
