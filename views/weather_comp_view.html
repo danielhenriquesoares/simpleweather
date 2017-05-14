@@ -1,0 +1,24 @@
+
+<!--<div style="width: 400px;background-color: #ffffff;border-radius: 3px;border: 1px solid #d3d3d3">-->
+<md-card>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline" ng-bind="::ctrl.weatherInfo.name"></span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <div>
+      <p><img ng-src="{{ctrl.buildImagePath(ctrl.weatherInfo)}}" alt="Current weather image" /></p>
+      <p ng-bind="::ctrl.weatherInfo.currentPosWeather.description"></p>
+    </div>
+    <div>
+      <!--<p>Location: <span ng-bind="::ctrl.weatherInfo.name"></span></p>-->
+      <p>Temperature: <span ng-bind="::ctrl.weatherInfo.currentTemp"></span></p>
+      <p>Max.Temperature: <span ng-bind="::ctrl.weatherInfo.currentTempMax"></span></p>
+      <p>Min. Temperature: <span ng-bind="::ctrl.weatherInfo.currentTempMin"></span></p>
+      <p>Sunrise: <span>{{ ctrl.sunriseSunset(ctrl.weatherInfo) }}</span></p>
+      <p>Sunset: <span>{{ ctrl.sunriseSunset(ctrl.weatherInfo, true) }}</span></p>
+    </div>
+  </md-card-content>
+</md-card>
+<!--</div>-->

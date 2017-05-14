@@ -1,0 +1,34 @@
+<html lang="en" ng-controller="MainController">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <title ng-bind="::title"></title>
+</head>
+<body ng-app="weather" ng-cloak>
+
+  <md-content class="md-padding" layout-xs="column" layout="row" style="margin-left: auto;margin-right: auto;">
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <div ng-view></div>
+    </div>
+  </md-content>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <script type="text/javascript" src="../app_config.js"></script>
+  <script type="text/javascript" src="../factory/response_factory.js"></script>
+  <script type="text/javascript" src="../services/weather_service.js"></script>
+  <script type="text/javascript" src="../services/geolocation_service.js"></script>
+  <script type="text/javascript" src="../services/weather_helper_service.js"></script>
+  <script type="text/javascript" src="../controllers/main_controller.js"></script>
+  <script type="text/javascript" src="../controllers/weather_controller.js"></script>
+  <script type="text/javascript" src="../directives/weather_directive.js"></script>
+</body>
+</html>
