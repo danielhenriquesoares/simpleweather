@@ -28,7 +28,7 @@
           console.error("Error: ", error);
         }).finally(function() {
           // Prepare data to send to directive
-          // Test git cenas
+          // Test git linux machine
           $scope.data = {};
           $scope.data.name = viewData.name;
           $scope.data.currentTemp = viewData.main.temp;
