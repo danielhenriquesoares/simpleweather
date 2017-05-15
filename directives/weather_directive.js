@@ -6,10 +6,12 @@
 
   function WeatherComp(weatherHelperService) {
     return {
-      scope: {
-        weatherInfo: "=info"
-      },
       restrict: "E",
+      replace: true,
+      scope: {
+        weatherInfo: "=info",
+        isSmall: "="
+      },
       templateUrl: "../views/weather_comp_view.html",
       bindToController: true,
       controller: function() {

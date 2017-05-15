@@ -44,7 +44,7 @@
         }
 
         return deferred.promise;
-      }
+      },
     };
 
     function showError(error) {

@@ -18,10 +18,28 @@
     }).finally(function() {
       //console.log(resp);
       if (typeof(resp) !== "undefined" && !resp.error.hasError) {
+
+        var forecastData = [];
+        var forecastResp;
+        weatherService.getCurrentLocationForecast(resp.data.coords, 5)
+        .then(function(resp) {
+          forecastResp = resp.data.data;
+        }).finally(function() {
+          angular.forEach(forecastResp.list, function(value, key) {
+            var data = {};
+            data.name = forecastResp.city.name;
+            data.subtitle = value.dt_txt;
+            data.currentPosWeather = value.weather[0];
+            forecastData.push(data);
+          });
+
+          $scope.forecast = forecastData;
+        });
+
         var viewData;
         weatherService.getCurrentLocationWeatherByCoords(resp.data.coords)
         .then(function(resp) {
-          console.log("api response",resp);
+          // console.log("api response",resp);
           viewData = resp.data.data;
 
         }).catch(function(error) {

@@ -1,2 +1,5 @@
-<h1 ng-bind="::message"></h1>
-<weather-comp info="data"></weather-comp>
+<h1 ng-bind="::message" style="text-align: center;"></h1>
+<weather-comp info="data" is-small="false"></weather-comp>
+<div layout="row" layout-align="space-around center" style="margin-top: 30px;">
+  <weather-comp info="data" is-small="true" ng-repeat="data in forecast track by $index"></weather-comp>
+</div>

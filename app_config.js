@@ -11,7 +11,8 @@ weather.constant("CONSTANTS", {
   API_KEY: "292c4426c1db055b4b25eb5f7efed937",
   API_VERSION: "2.5",
   API_UNITS: "metric",
-  IMAGES_PATH: "http://openweathermap.org/img/w/"
+  IMAGES_PATH: "http://openweathermap.org/img/w/",
+  LANG: "pt"
 });
 
 weather.config(function($routeProvider) {
@@ -24,18 +25,15 @@ weather.config(function($routeProvider) {
 
 weather.config(function($httpProvider, CONSTANTS) {
 
-  // var apiId = "292c4426c1db055b4b25eb5f7efed937";
   $httpProvider.interceptors.push(function($q) {
     return {
       "request": function(config) {
-
         if (config.method === "GET") {
           config.params = config.params || {};
-          // config.params.appid =  apiId;
           config.params.appid =  CONSTANTS.API_KEY;
           config.params.units = CONSTANTS.API_UNITS;
+          config.params.lang = CONSTANTS.LANG;
         }
-        // console.log(config);
         return config;
       }
     };

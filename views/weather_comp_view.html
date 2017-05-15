@@ -1,24 +1,53 @@
 
 <!--<div style="width: 400px;background-color: #ffffff;border-radius: 3px;border: 1px solid #d3d3d3">-->
-<md-card>
-  <md-card-title>
-    <md-card-title-text>
+<md-card ng-class="{'single-card': !ctrl.isSmall}">
+  <md-card-title class="custom-title">
+    <md-card-title-text style="text-align: center;">
       <span class="md-headline" ng-bind="::ctrl.weatherInfo.name"></span>
+      <br/ ng-show="ctrl.isSmall">
+      <span ng-show="ctrl.isSmall" class="md-headline subtitle" ng-bind="::ctrl.weatherInfo.subtitle"></span>
     </md-card-title-text>
   </md-card-title>
   <md-card-content>
-    <div>
+    <div style="text-align: center;">
       <p><img ng-src="{{ctrl.buildImagePath(ctrl.weatherInfo)}}" alt="Current weather image" /></p>
       <p ng-bind="::ctrl.weatherInfo.currentPosWeather.description"></p>
     </div>
-    <div>
-      <!--<p>Location: <span ng-bind="::ctrl.weatherInfo.name"></span></p>-->
-      <p>Temperature: <span ng-bind="::ctrl.weatherInfo.currentTemp"></span></p>
-      <p>Max.Temperature: <span ng-bind="::ctrl.weatherInfo.currentTempMax"></span></p>
-      <p>Min. Temperature: <span ng-bind="::ctrl.weatherInfo.currentTempMin"></span></p>
-      <p>Sunrise: <span>{{ ctrl.sunriseSunset(ctrl.weatherInfo) }}</span></p>
-      <p>Sunset: <span>{{ ctrl.sunriseSunset(ctrl.weatherInfo, true) }}</span></p>
+    <div ng-if="!ctrl.isSmall">
+      <p><span class="bold">Temperature:</span> <span ng-bind="::ctrl.weatherInfo.currentTemp"></span></p>
+      <p><span class="bold">Max.Temperature:</span> <span ng-bind="::ctrl.weatherInfo.currentTempMax"></span></p>
+      <p><span class="bold">Min. Temperature:</span> <span ng-bind="::ctrl.weatherInfo.currentTempMin"></span></p>
+      <p><span class="bold">Sunrise:</span> <span>{{ ctrl.sunriseSunset(ctrl.weatherInfo) }}</span></p>
+      <p><span class="bold">Sunset:</span> <span>{{ ctrl.sunriseSunset(ctrl.weatherInfo, true) }}</span></p>
     </div>
   </md-card-content>
+  <style type="text/css">
+    .single-card {
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .small-card {
+      width: 200px;
+    }
+
+    md-card-title.custom-title {
+      padding-bottom: 0;
+    }
+
+    .title {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 14px;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+  </style>
 </md-card>
 <!--</div>-->

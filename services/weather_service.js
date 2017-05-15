@@ -42,6 +42,35 @@
         return deferred.promise;
       },
 
+      getCurrentLocationForecast: function(coords, limit) {
+        var deferred = $q.defer();
+        if (coords === null || typeof(coords) === "undefined") {
+          response.setError("Invalid parameter 'coords' provided");
+          deferred.reject(response.getResponse());
+          return deferred.promise;
+        }
+
+        var params = [
+          "lat=" + coords.latitude,
+          "lon=" + coords.longitude,
+          "cnt=" + limit
+        ];
+
+        var url = endpoint + "/data/"+ constants.API_VERSION + "/forecast?" + params.join("&");
+
+        $http.get(url, {cache: true})
+        .then(function(resp) {
+          response.setData(resp);
+          deferred.resolve(response.getResponse());
+        })
+        .catch(function() {
+          response.setError("Error occur while fetching current location weather");
+          deferred.reject(response.getResponse());
+        });
+
+        return deferred.promise;
+      },
+
       /**
        * [description]
        * @param  {[type]} city    [description]
