@@ -1,5 +1,10 @@
-<h1 ng-bind="::message" style="text-align: center;"></h1>
-<weather-comp info="data" is-small="false"></weather-comp>
+<h1 ng-bind="::ctrl.message" style="text-align: center;"></h1>
+<weather-comp info="ctrl.data" is-small="false"></weather-comp>
 <div layout="row" layout-align="space-around center" style="margin-top: 30px;">
-  <weather-comp info="data" is-small="true" ng-repeat="data in forecast track by $index"></weather-comp>
+  <weather-comp info="data" is-small="true" ng-repeat="data in ctrl.forecast track by $index"></weather-comp>
 </div>
+
+<div layout="row" layout-align="start center" ng-repeat="t in ctrl.testArray track by $index">
+  <p ng-bind="::t"></p>
+</div>
+<md-button class="md-primary" ng-click="ctrl.listener()">Add</md-button>

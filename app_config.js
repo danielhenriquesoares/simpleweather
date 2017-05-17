@@ -19,7 +19,8 @@ weather.config(function($routeProvider) {
   $routeProvider
   .when("/", {
     templateUrl: "../views/weather_view.html",
-    controller: "WeatherController"
+    controller: "WeatherController",
+    controllerAs: "ctrl"
   });
 });
 

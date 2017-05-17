@@ -2,11 +2,20 @@
   "use strict";
 
   angular.module("weather.controllers")
-  .controller("WeatherController", ["$scope", "WeatherService",
-  "GeolocationService", WeatherController]);
+  .controller("WeatherController", ["WeatherService",
+  "GeolocationService", "WeatherHelperService", WeatherController]);
 
-  function WeatherController($scope, weatherService, geolocationService) {
-    $scope.message = "Weather forecast";
+  function WeatherController(weatherService, geolocationService,
+    weatherHelperService) {
+
+    var vm = this;
+    vm.message = "Weather forecast";
+    vm.testArray = ["a","b"];
+
+    vm.listener = function() {
+      console.log("listener");
+      vm.testArray.push(weatherHelperService.getRandomChar());
+    };
 
     var resp;
     geolocationService.getCurrentPosition()
@@ -33,7 +42,7 @@
             forecastData.push(data);
           });
 
-          $scope.forecast = forecastData;
+          vm.forecast = forecastData;
         });
 
         var viewData;
@@ -46,15 +55,14 @@
           console.error("Error: ", error);
         }).finally(function() {
           // Prepare data to send to directive
-          // Test git linux machine
-          $scope.data = {};
-          $scope.data.name = viewData.name;
-          $scope.data.currentTemp = viewData.main.temp;
-          $scope.data.currentTempMax = viewData.main.temp_max;
-          $scope.data.currentTempMin = viewData.main.temp_min;
-          $scope.data.sunrise = viewData.sys.sunrise;
-          $scope.data.sunset = viewData.sys.sunset;
-          $scope.data.currentPosWeather = viewData.weather[0];
+          vm.data = {};
+          vm.data.name = viewData.name;
+          vm.data.currentTemp = viewData.main.temp;
+          vm.data.currentTempMax = viewData.main.temp_max;
+          vm.data.currentTempMin = viewData.main.temp_min;
+          vm.data.sunrise = viewData.sys.sunrise;
+          vm.data.sunset = viewData.sys.sunset;
+          vm.data.currentPosWeather = viewData.weather[0];
         });
       }
 

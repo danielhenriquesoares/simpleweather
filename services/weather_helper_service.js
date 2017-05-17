@@ -43,6 +43,11 @@
         }
 
         return 0;
+      },
+
+      getRandomChar: function() {
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        return possible.charAt(Math.floor(Math.random() * possible.length));
       }
     };
   }
