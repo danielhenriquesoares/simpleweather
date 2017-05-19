@@ -13,8 +13,10 @@
     vm.testArray = ["a","b"];
 
     vm.listener = function() {
-      console.log("listener");
-      vm.testArray.push(weatherHelperService.getRandomChar());
+      /*console.log("listener");
+      vm.testArray.push(weatherHelperService.getRandomChar());*/
+      vm.testArray[0] = weatherHelperService.getRandomChar();
+      vm.testArray[1] = weatherHelperService.getRandomChar();
     };
 
     var resp;

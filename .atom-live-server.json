@@ -1,0 +1,5 @@
+{
+  "entry-file": "/index.html",
+  "root": "/home/daniel/Documents/simpleweather",
+  "port": "3000"
+}
