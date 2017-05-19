@@ -4,6 +4,8 @@
   <weather-comp info="data" is-small="true" ng-repeat="data in ctrl.forecast track by $index"></weather-comp>
 </div>
 <!-- track by $index -->
+<!-- Pushing new element into testArray would add a new index, that is way it was working
+with the track by clause in ng-repeat -->
 <div layout="row" layout-align="start center" ng-repeat="t in ctrl.testArray">
   <p ng-bind="::t"></p>
 </div>
