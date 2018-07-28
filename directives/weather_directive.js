@@ -22,7 +22,7 @@
       controllerAs: "ctrl"/*,
       link: function(scope, elem, attrs){
         console.log(scope.ctrl);
-
+       console.log("test.... test....");
         scope.ctrl.buildImagePath = function() {
           return weatherHelperService.buildImagePath(scope.ctrl.weatherInfo);
         };
